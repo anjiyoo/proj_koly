@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<h3>{{user}}'s 상품 페이지</h3>
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="row">
+        {% for products in object_list %}
+            <div class="col-sm-6 col-md-4 mb-4">
+                <div class="card">
+                    <!-- detail url 연결 -->
+                    <a href="{% url 'seller:products_detail' pk=products.id %}">
+                        <img src="{{ products.image_url }}" class="card-img-top products-image" alt="{{ products.name }}">
+                        <div class="card-body row">
+                            <h6 class="card-title">{{ products.name }}</h6>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+    <!-- add_products url 연결 -->
+    <div class="d-flex justify-content-end mb-3">
+        <a href="{% url 'seller:add_products' %}" class="btn btn-secondary" disabled>상품 등록</a>
+    </div>
+</div>
+{% endblock %}

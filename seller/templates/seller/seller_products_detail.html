@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-5">
+    
+    <h3 class="text-center mb-4">{{ user }}'s 상품 상세페이지</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <img src="{{ object.image_url }}" alt="{{ object.name }}" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="card-title">{{ object.name }}</h2>
+                    <h4 class="card-subtitle mb-2 text-muted">{{ object.price }}원</h4>
+                    <p class="card-text">{{ object.description }}</p>
+
+                    <form action="{% url 'seller:delete_products' pk=object.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger">삭제하기</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

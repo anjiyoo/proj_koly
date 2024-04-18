@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+        <br>
+        <h3>{{user}}'s Shop</h3>
+        <div class="row">
+
+        {% for products in object_list %}
+            <div class="col-sm-6 col-md-4 mb-4">
+                <div class="card">
+                    <a href="#">
+                        <img src="{{ products.image_url }}" class="card-img-top food-image" alt="{{ products.name }}">
+                        <div class="card-body row">
+                            <h5 class="card-title">{{ products.name }}</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

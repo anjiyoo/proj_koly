@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+
+<h3>상품등록</h3>
+<br>
+<form action="" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="category">카테고리</label>
+         <select id="category" name="category">
+            <option value="채소">채소</option>
+            <option value="과일/견과/쌀">과일/견과/쌀</option>
+            <option value="수산/해산/건어물">수산/해산/건어물</option>
+            <option value="정육/가공육/계란">정육/가공육/계란</option>
+            <option value="국/반찬/메인요리">국/반찬/메인요리</option>
+            <option value="간편식/밀키트/샐러드"><간편식/밀키트/샐러드/option>
+            <option value="면/양념/오일">면/양념/오일</option>
+            <option value="생수/음료">생수/음료</option>
+            <option value="커피/차">커피/차</option>
+            <option value="간식/과자/떡">간식/과자/떡</option>
+            <option value="베이커리">베이커리</option>
+            <option value="유제품">유제품</option>
+            <option value="건강식품">건강식품</option>
+            <option value="와인/위스키">와인/위스키</option>
+            <option value="전통주">전통주</option>
+        </select>
+    </div>        
+    <div class="col-md-4">
+        <label for="name" class="form-label">상품명</label>
+        <input type="text" name="name" class="form-control" id="name">
+    </div>
+    <div class="col-md-4">
+        <label for="price" class="form-label">가격</label>
+        <input type="number" name="price" class="form-control" id="price">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">상품설명</label>
+        <textarea name="description" rows="2" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">썸네일</label>
+        <input type="file" name="file" class="form-control" id="file">
+    </div>
+    <div class="text-center">
+        <input type="submit" value="등록" class="btn btn-secondary">
+    </div>
+</form>
+{% endblock %}
